@@ -21,6 +21,10 @@ workflows:
     triggers:
       - schedule:
           cron: "17 * * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - test
             
