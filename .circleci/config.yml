@@ -14,10 +14,18 @@ jobs:
       - run: echo "Helloooo!!!"
 workflows:
   version: 2.1
-  build_and_test:
+  commit:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+  nightly:
+    triggers:
+      - schedule:
+        cron: "17 * * * *"
+        filters:
+          branches:
+          only:
+            - master
+    jobs:
+      - test
+            
         
