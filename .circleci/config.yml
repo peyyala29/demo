@@ -6,15 +6,3 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world"
-  test:
-    docker:
-      - image: circleci/node:4.8.2
-    steps:
-      - checkout
-      - run: echo "Helloooo!!!"
-workflows:
-  version: 2.1
-  build_and_test:
-    jobs:
-      - build
-      - test        
